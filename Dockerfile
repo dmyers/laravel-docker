@@ -70,4 +70,4 @@ RUN apt-get clean \
     && rm -rf /var/tmp/*
 
 # Setup working directory
-WORKDIR /var/www
+WORKDIR /var/www/html
