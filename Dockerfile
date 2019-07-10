@@ -17,6 +17,8 @@ RUN apt-get update && apt-get install -y \
     zlib1g-dev \
     libicu-dev \
     libbz2-dev \
+    libmagickwand-dev \
+    libmagickcore-dev \
     locales \
     zip \
     jpegoptim \
@@ -30,12 +32,14 @@ RUN echo en_US.UTF-8 UTF-8 > /etc/locale.gen && locale-gen
 # Install PECL extensions
 RUN pecl install -o -f redis \
     xdebug \
-    memcached
+    memcached \
+    imagick
 
 # Enable PHP extensions
 RUN docker-php-ext-enable redis \
     xdebug \
-    memcached
+    memcached \
+    imagick
 
 # Configure PHP extensions
 RUN docker-php-ext-configure gd --with-gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/
