@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y \
     libmagickcore-dev \
     locales \
     zip \
+    git \
     jpegoptim \
     optipng \
     pngquant \
