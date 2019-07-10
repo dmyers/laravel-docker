@@ -42,6 +42,8 @@ RUN docker-php-ext-configure gd --with-gd --with-freetype-dir=/usr/include/ --wi
 
 # Install PHP extensions
 RUN docker-php-ext-install mysqli \
+    mbstring \
+    pdo \
     pdo_mysql \
     mcrypt \
     pcntl \
