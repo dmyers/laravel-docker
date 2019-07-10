@@ -33,13 +33,15 @@ RUN echo en_US.UTF-8 UTF-8 > /etc/locale.gen && locale-gen
 RUN pecl install -o -f redis \
     xdebug \
     memcached \
-    imagick
+    imagick \
+    mailparse
 
 # Enable PHP extensions
 RUN docker-php-ext-enable redis \
     xdebug \
     memcached \
-    imagick
+    imagick \
+    mailparse
 
 # Configure PHP extensions
 RUN docker-php-ext-configure gd --with-gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/
