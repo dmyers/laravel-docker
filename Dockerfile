@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install packages
 RUN apt-get update && apt-get install -y \
     build-essential \
-    mysql-client \
+    default-mysql-client \
     libpng-dev \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
