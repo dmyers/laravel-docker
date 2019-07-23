@@ -6,6 +6,8 @@ This is a base setup for Laravel to use with Docker and Docker Compose.
 | - | - | - |
 | 7.1 | 7.1 | PHP v7.1 |
 | 7.1-fpm | 7.1 | PHP v7.1 with FPM |
+| 7.2 | 7.2 | PHP v7.2 |
+| 7.2-fpm | 7.2 | PHP v7.2 with FPM |
 | latest | **7.1** | Link to 7.1-fpm tag. |
 
 ### Usage
