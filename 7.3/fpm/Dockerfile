@@ -61,7 +61,8 @@ RUN docker-php-ext-install mysqli \
     soap \
     bz2 \
     exif \
-    bcmath
+    bcmath \
+    opcache
 
 # Update PHP config
 RUN echo "max_execution_time=300" > $PHP_INI_DIR/conf.d/max-execution-time.ini && \
