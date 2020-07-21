@@ -48,10 +48,12 @@ RUN docker-php-ext-enable redis \
     mcrypt
 
 # Configure PHP extensions
+RUN docker-php-ext-configure intl
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 
 # Install PHP extensions
-RUN docker-php-ext-install mysqli \
+RUN docker-php-ext-install intl \
+    mysqli \
     pdo \
     pdo_mysql \
     pcntl \
