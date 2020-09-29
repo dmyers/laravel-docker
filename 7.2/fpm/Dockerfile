@@ -81,7 +81,7 @@ RUN apt-get clean \
     && rm -rf /var/tmp/*
 
 # Allow container to write on host
-RUN usermod -u 1000 www-data
+# RUN usermod -u 1000 www-data
 
 # Setup working directory
 WORKDIR /var/www/html
