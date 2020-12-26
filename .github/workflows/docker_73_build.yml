@@ -1,0 +1,20 @@
+name: Docker build
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  docker_build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build Docker docker_php73_cli image
+        run: cd 7.3/cli && docker build -t docker_php73_cli .
+      - name: Build Docker docker_php73_fpm image
+        run: cd 7.3/fpm && docker build -t docker_php73_fpm .
