@@ -1,0 +1,20 @@
+name: Docker build
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  docker_build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build Docker docker_php72_cli image
+        run: cd 7.4/cli && docker build -t docker_php74_cli .
+      - name: Build Docker docker_php74_fpm image
+        run: cd 7.4/fpm && docker build -t docker_php74_fpm .
