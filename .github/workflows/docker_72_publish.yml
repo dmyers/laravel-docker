@@ -1,0 +1,31 @@
+name: Docker publish
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  docker_build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Docker login
+        run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build Docker 7.2 image
+        run: cd 7.2/cli && docker build -t 7.2 .
+      - name: Build Docker 7.2-fpm image
+        run: cd 7.2/fpm && docker build -t 7.2-fpm .
+      - name: Tags 7.2
+        run: |
+          docker tag 7.2 ${{ secrets.DOCKER_USER }}/laravel:7.2
+      - name: Publish Docker 7.2 image
+        run: |
+          docker push ${{ secrets.DOCKER_USER }}/laravel:7.2
+      - name: Tags 7.2-fpm
+        run: |
+          docker tag 7.2-fpm ${{ secrets.DOCKER_USER }}/laravel:7.2-fpm
+      - name: Publish Docker 7.2-fpm image
+        run: |
+          docker push ${{ secrets.DOCKER_USER }}/laravel:7.2-fpm
