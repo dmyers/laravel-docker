@@ -23,6 +23,12 @@ jobs:
       - name: Publish Docker 7.4 image
         run: |
           docker push ${{ secrets.DOCKER_USER }}/laravel:7.4
+      - name: Tags latest
+        run: |
+          docker tag 7.4 ${{ secrets.DOCKER_USER }}/laravel:latest
+      - name: Publish Docker latest image
+        run: |
+          docker push ${{ secrets.DOCKER_USER }}/laravel:latest
       - name: Tags 7.4-fpm
         run: |
           docker tag 7.4-fpm ${{ secrets.DOCKER_USER }}/laravel:7.4-fpm
