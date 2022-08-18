@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Build Docker docker_php72_cli image
+      - name: Build Docker docker_php74_cli image
         run: cd 7.4/cli && docker build -t docker_php74_cli .
       - name: Build Docker docker_php74_fpm image
         run: cd 7.4/fpm && docker build -t docker_php74_fpm .
