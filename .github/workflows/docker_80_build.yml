@@ -1,0 +1,17 @@
+name: Docker build
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  docker_build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build Docker docker_php80_cli image
+        run: cd 8.0/cli && docker build -t docker_php80_cli .
+      - name: Build Docker docker_php80_fpm image
+        run: cd 8.0/fpm && docker build -t docker_php80_fpm .
