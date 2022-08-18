@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - '7.3/**'
 
 jobs:
   docker_build:

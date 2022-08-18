@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
       - master
+    paths:
+      - '7.3/**'
 
 jobs:
   docker_build:
